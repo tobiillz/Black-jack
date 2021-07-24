@@ -75,8 +75,9 @@
 
 
 
-let firstCard = 1;
-let secondCard = 11;
+let firstCard = Math.floor(Math.random() * 12);
+let secondCard = Math.floor(Math.random() * 11);
+let cards = [firstCard, secondCard];
 let sum = firstCard+secondCard;
 let hasblackJack = false;
 let isAlive = true;
@@ -90,7 +91,7 @@ function startGame(){
    renderGame();
 }
 function renderGame(){
-      cardsEl.textContent = 'Cards: '+ firstCard + ',' + secondCard;
+      cardsEl.textContent = 'Cards: '+ cards;
       sumEl.textContent = 'Sum: ' + sum;
    if (sum === 21){
       hasblackJack = true;
@@ -108,8 +109,8 @@ function renderGame(){
 }
 function newCard(){
    console.log('Drawing a new card from the deck')
-   let newcardValue = 4;
-   cardsEl.textContent = cardsEl.textContent + 'test' + newcardValue;
+   let newcardValue = Math.floor(Math.random() * 11);
+   cards.push(newcardValue)
    sum += newcardValue ;
    renderGame();
 }
