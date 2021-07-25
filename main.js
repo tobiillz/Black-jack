@@ -75,13 +75,24 @@
 
 
 
-let firstCard = Math.floor(Math.random() * 12);
-let secondCard = Math.floor(Math.random() * 11);
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard];
 let sum = firstCard+secondCard;
 let hasblackJack = false;
 let isAlive = true;
 let message = "";
+
+function getRandomCard(){
+   let randomNumber = Math.floor(Math.random() * 13) + 1;
+   if (randomNumber === 1){
+      return 11;
+   }else if(randomNumber > 10){
+      return 10;
+   }else{
+      return randomNumber;
+   }
+}
 
 
 let messageEl = document.getElementById('message-el');
@@ -109,8 +120,9 @@ function renderGame(){
 }
 function newCard(){
    console.log('Drawing a new card from the deck')
-   let newcardValue = Math.floor(Math.random() * 11);
+   let newcardValue = getRandomCard();
    cards.push(newcardValue)
    sum += newcardValue ;
    renderGame();
 }
+
