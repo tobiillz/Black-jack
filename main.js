@@ -75,12 +75,11 @@
 
 
 
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards = [firstCard, secondCard];
-let sum = firstCard+secondCard;
+
+let cards = [];
+let sum = 0;
 let hasblackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 
 function getRandomCard(){
@@ -93,12 +92,17 @@ function getRandomCard(){
       return randomNumber;
    }
 }
-
+console.log(cards)
 
 let messageEl = document.getElementById('message-el');
 let cardsEl = document.querySelector('#card-el');
 let sumEl = document.querySelector('#sum-el'); 
 function startGame(){
+   let isAlive = true;
+   let firstCard = getRandomCard()
+   let secondCard = getRandomCard()
+   let cards = [firstCard, secondCard]
+   let sum = firstCard + secondCard;
    renderGame();
 }
 function renderGame(){
@@ -113,16 +117,18 @@ function renderGame(){
    }else{
       message = "Do you want to draw a new card?"
    }
-   messageEl.textContent = message;
-   console.log(hasblackJack);
-   console.log(isAlive);
-   console.log(message)
+   messageEl.textContent = message
 }
 function newCard(){
-   console.log('Drawing a new card from the deck')
-   let newcardValue = getRandomCard();
-   cards.push(newcardValue)
-   sum += newcardValue ;
-   renderGame();
+   if (isAlive === true && hasblackJack === false ){
+      //console.log('Drawing a new card from the deck')
+      let newcardValue = getRandomCard();
+      cards.push(newcardValue)
+      sum += newcardValue ;
+      renderGame();
+   }else{
+      console.log('idk')
+   }
+   
 }
 
