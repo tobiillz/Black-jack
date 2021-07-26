@@ -79,7 +79,8 @@
 let cards = [];
 let sum = 0;
 let hasblackJack = false;
-let isAlive = false;
+// isAlive should be false on default, but turn true when startGame function is called
+let isAlive = true;
 let message = "";
 
 function getRandomCard(){
@@ -98,7 +99,7 @@ let messageEl = document.getElementById('message-el');
 let cardsEl = document.querySelector('#card-el');
 let sumEl = document.querySelector('#sum-el'); 
 function startGame(){
-   let isAlive = true;
+   // let isAlive = true;
    let firstCard = getRandomCard()
    let secondCard = getRandomCard()
    let cards = [firstCard, secondCard]
@@ -127,7 +128,7 @@ function newCard(){
       sum += newcardValue ;
       renderGame();
    }else{
-      console.log('idk')
+      console.log('STOP!! Restart the game')
    }
    
 }
