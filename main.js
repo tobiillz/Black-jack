@@ -76,12 +76,18 @@
 
 
 
-let cards = [];
-let sum = 0;
-let hasblackJack = false;
+let cards = []
+let sum = 0
+let hasblackJack = false
 // isAlive should be false on default, but turn true when startGame function is called
-let isAlive = true;
-let message = "";
+let isAlive = false
+let message = ""
+let messageEl = document.getElementById('message-el');
+let cardsEl = document.querySelector('#card-el');
+let sumEl = document.querySelector('#sum-el'); 
+
+console.log(cards)
+
 
 function getRandomCard(){
    let randomNumber = Math.floor(Math.random() * 13) + 1;
@@ -93,17 +99,14 @@ function getRandomCard(){
       return randomNumber;
    }
 }
-console.log(cards)
 
-let messageEl = document.getElementById('message-el');
-let cardsEl = document.querySelector('#card-el');
-let sumEl = document.querySelector('#sum-el'); 
+
 function startGame(){
-   // let isAlive = true;
+   isAlive = true;
    let firstCard = getRandomCard()
    let secondCard = getRandomCard()
-   let cards = [firstCard, secondCard]
-   let sum = firstCard + secondCard;
+   cards = [firstCard, secondCard]
+   sum = firstCard + secondCard;
    renderGame();
 }
 function renderGame(){
